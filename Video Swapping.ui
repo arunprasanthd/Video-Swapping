@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>760</width>
+    <width>1080</width>
     <height>640</height>
    </rect>
   </property>
@@ -47,17 +47,28 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>860</x>
       <y>10</y>
       <width>191</width>
       <height>521</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
+    <layout class="QGridLayout" name="gLayout">
      <item row="0" column="0">
-      <layout class="QVBoxLayout" name="frameLayout"/>
+      <layout class="QVBoxLayout" name="vLayout"/>
      </item>
     </layout>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>811</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gLay"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -65,7 +76,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>760</width>
+     <width>1080</width>
      <height>21</height>
     </rect>
    </property>
