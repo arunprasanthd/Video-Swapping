@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1080</width>
+    <width>760</width>
     <height>640</height>
    </rect>
   </property>
@@ -44,16 +44,20 @@
      <string>Play</string>
     </property>
    </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget">
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>30</y>
-      <width>931</width>
-      <height>501</height>
+      <x>550</x>
+      <y>10</y>
+      <width>191</width>
+      <height>521</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="frameLayout"/>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="frameLayout"/>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -61,7 +65,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1080</width>
+     <width>760</width>
      <height>21</height>
     </rect>
    </property>

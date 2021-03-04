@@ -13,28 +13,39 @@ class VideoWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         loadUi('Video Swapping.ui', self)
+        self.mediaPlayers = []
+        self.videoWidgets = []
+        self.selector = []
+
+        for i in range(4):
+            self.mediaPlayers.append(QMediaPlayer(None, QMediaPlayer.VideoSurface))
+            self.videoWidgets.append(QVideoWidget())
+            self.mediaPlayers[i].setVideoOutput(self.videoWidgets[i])
+            self.frameLayout.addWidget(self.videoWidgets[i])
 
         self.openButton.clicked.connect(self.openFile)
         self.playButton.clicked.connect(self.playFile)
 
-        self.mediaPlayer = QMediaPlayer(None, QMediaPlayer.VideoSurface)
-        videoWidget = QVideoWidget()
-        self.mediaPlayer.setVideoOutput(videoWidget)
-        self.frameLayout.addWidget(videoWidget)
+        for i in self.mediaPlayers:
+            i.stateChanged.connect(self.mediaStateChanged)
 
     def openFile(self):
-        fileName, _ = QFileDialog.getOpenFileName(self, "Open Movie", QDir.homePath())
-
-        if fileName != '':
-            self.mediaPlayer.setMedia(
-                QMediaContent(QUrl.fromLocalFile(fileName)))
+        files, _ = QFileDialog.getOpenFileNames(self, "Select up to 4 files", QDir.homePath())
+        for m, f in zip(self.mediaPlayers, files):
+            m.setMedia(QMediaContent(QUrl.fromLocalFile(f)))
+        self.playButton.setEnabled(True)
 
     def playFile(self):
-        if self.mediaPlayer.state() == QMediaPlayer.PlayingState:
-            self.mediaPlayer.pause()
+        for i in self.mediaPlayers:
+            if i.state() == QMediaPlayer.PlayingState:
+                i.pause()
+            else:
+                i.play()
+
+    def mediaStateChanged(self, state):
+        if self.mediaPlayers[0].state() == QMediaPlayer.PlayingState:
             self.playButton.setText('Pause')
         else:
-            self.mediaPlayer.play()
             self.playButton.setText('Play')
 
 
