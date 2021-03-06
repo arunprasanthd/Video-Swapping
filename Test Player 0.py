@@ -74,6 +74,7 @@ class VideoWindow(QMainWindow):
 
     def clickAction(self, a):
         self.mediaPlayer.setMedia(QMediaContent(QUrl.fromLocalFile(a)))
+        self.mediaPlayer.play()
 
 
 app = QApplication(sys.argv)
