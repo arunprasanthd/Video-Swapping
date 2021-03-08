@@ -31,7 +31,7 @@ class QVideoClickableWidget(QVideoWidget):
 class VideoWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        loadUi('Video Swapping1.ui', self)
+        loadUi('Video Swapping.ui', self)
         self.mediaPlayers = []
         self.videoWidgets = []
 
